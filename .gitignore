@@ -1,0 +1,11 @@
+
+/objectmodel/bin
+/objectmodel/obj
+/CouchDBTest/bin
+/CouchDBTest/obj
+/ObjectModel/bin
+/ObjectModel/obj
+/DataModel/bin
+/DataModel/obj
+*.suo
+*.userprefs
