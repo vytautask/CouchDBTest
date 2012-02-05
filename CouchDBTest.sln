@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CouchDBTest", "CouchDBTest\CouchDBTest.csproj", "{0260231A-AF98-456A-AAC4-9F0D2433AC88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectModel", "ObjectModel\ObjectModel.csproj", "{E8F202FD-E416-4081-9010-85E6C6BB2847}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{696D44DD-16BA-43DA-85AD-76D5857FFCF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{E8D789D7-2A4D-429E-9179-07AE921BDE77}"
+	ProjectSection(SolutionItems) = preProject
+		Libs\Divan.dll = Libs\Divan.dll
+		Libs\Newtonsoft.Json.dll = Libs\Newtonsoft.Json.dll
+		Libs\nunit.framework.dll = Libs\nunit.framework.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0260231A-AF98-456A-AAC4-9F0D2433AC88}.Debug|x86.ActiveCfg = Debug|x86
+		{0260231A-AF98-456A-AAC4-9F0D2433AC88}.Debug|x86.Build.0 = Debug|x86
+		{0260231A-AF98-456A-AAC4-9F0D2433AC88}.Release|x86.ActiveCfg = Release|x86
+		{0260231A-AF98-456A-AAC4-9F0D2433AC88}.Release|x86.Build.0 = Release|x86
+		{E8F202FD-E416-4081-9010-85E6C6BB2847}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E8F202FD-E416-4081-9010-85E6C6BB2847}.Debug|x86.Build.0 = Debug|Any CPU
+		{E8F202FD-E416-4081-9010-85E6C6BB2847}.Release|x86.ActiveCfg = Release|Any CPU
+		{E8F202FD-E416-4081-9010-85E6C6BB2847}.Release|x86.Build.0 = Release|Any CPU
+		{696D44DD-16BA-43DA-85AD-76D5857FFCF9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{696D44DD-16BA-43DA-85AD-76D5857FFCF9}.Debug|x86.Build.0 = Debug|Any CPU
+		{696D44DD-16BA-43DA-85AD-76D5857FFCF9}.Release|x86.ActiveCfg = Release|Any CPU
+		{696D44DD-16BA-43DA-85AD-76D5857FFCF9}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = CouchDBTest\CouchDBTest.csproj
+	EndGlobalSection
+EndGlobal
