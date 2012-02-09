@@ -1,12 +1,14 @@
 using Divan;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace ObjectModel
 {
-	public abstract class OMBase: CouchDocument
+	public abstract class OMBase: CouchDocument, IDisposable
 	{
 		private string _archetypeNodeID = null;
+        private bool _isDisposed = false;
 		
 		public OMBase()
 		{
@@ -30,7 +32,13 @@ namespace ObjectModel
 		{
 			get;
 		}
-		
+
+        public bool IsDisposed
+        {
+            get { return _isDisposed; }
+            private set { _isDisposed = value; }
+        }
+        
 		public override void WriteJson(JsonWriter writer)
 		{
 			base.WriteJson(writer);
@@ -47,7 +55,6 @@ namespace ObjectModel
 		{
 			base.ReadJson(obj);
 			
-			//TypeName = obj["type_name"].Value<string>();
 			ArchetypeNodeID = obj["archetype_node_id"].Value<string>();
 			
 			OnReadJson(obj);
@@ -55,6 +62,31 @@ namespace ObjectModel
 		
 		public abstract void OnWriteJson(JsonWriter writer);
 		public abstract void OnReadJson(JObject obj);
-	}
+
+
+        protected virtual void Dispose(bool disposing)
+		{
+			if (!IsDisposed)
+			{
+				if (disposing)
+				{
+                    _archetypeNodeID = null;
+				}
+
+				IsDisposed = false;
+			}
+		}
+
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		~OMBase()
+		{
+			Dispose(false);
+		}
+    }
 }
 

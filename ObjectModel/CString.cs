@@ -32,6 +32,19 @@ namespace ObjectModel
 		{
 			Value = obj["value"].Value<string>();
 		}
+
+        protected override void Dispose(bool disposing)
+        {
+            if (!IsDisposed)
+            {
+                if (disposing)
+                {
+                    _value = null;
+                }
+
+                base.Dispose(disposing);
+            }
+        }
 	}
 }
 

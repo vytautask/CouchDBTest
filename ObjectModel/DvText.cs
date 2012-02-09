@@ -53,6 +53,22 @@ namespace ObjectModel
 
 			Value.ReadJson((JObject)obj["value"]);
 		}
+
+        protected override void Dispose(bool disposing)
+        {
+            if (!IsDisposed)
+            {
+                if (disposing)
+                {
+                    if (_value != null)
+                    {
+                        _value.Dispose();
+                    }
+                }
+
+                base.Dispose(disposing);
+            }
+        }
 	}
 }
 

@@ -70,6 +70,24 @@ namespace ObjectModel
 				Items.Add(item);
 			}
 		}
+
+        protected override void Dispose(bool disposing)
+        {
+            if (!IsDisposed)
+            {
+                if (disposing)
+                {
+                    for (int i = 0; i < Items.Count; i++)
+                    {
+                        Items[i].Dispose();
+                    }
+
+                    _items = null;
+                }
+
+                base.Dispose(disposing);
+            }
+        }
 	}
 }
 

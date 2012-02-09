@@ -31,6 +31,9 @@ namespace CouchDBTest
 			Assert.AreEqual(list.Items[1].TypeName, deserializedList.Items[1].TypeName);
 			Assert.AreEqual(((DvText)list.Items[0]).Value.Value, ((DvText)deserializedList.Items[0]).Value.Value);
 			Assert.AreEqual(((DvCount)list.Items[1]).Value.Magnitude, ((DvCount)deserializedList.Items[1]).Value.Magnitude);
+
+            deserializedList.Dispose();
+            list.Dispose();
 		}
 	}
 }
