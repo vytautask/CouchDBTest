@@ -9,11 +9,12 @@ namespace ObjectModel
 	{
 		private string _archetypeNodeID = null;
         private bool _isDisposed = false;
+		private bool _useIDAndRev = true;
 		
 		public OMBase()
 		{
-			Id = "";
-			Rev = "";
+			//Id = "";
+			//Rev = "";
 		}
 		
 		public OMBase (string archetypeNodeID)
@@ -28,6 +29,12 @@ namespace ObjectModel
 			set { _archetypeNodeID = value; }
 		}
 		
+		public bool UseIDAndRev
+		{
+			get { return _useIDAndRev; }
+			set { _useIDAndRev = value; }
+		}
+
 		public abstract string TypeName
 		{
 			get;
@@ -41,7 +48,8 @@ namespace ObjectModel
         
 		public override void WriteJson(JsonWriter writer)
 		{
-			base.WriteJson(writer);
+			if(UseIDAndRev)
+				base.WriteJson(writer);
 			
 			writer.WritePropertyName("type_name");
 			writer.WriteValue(TypeName);
@@ -53,7 +61,8 @@ namespace ObjectModel
 		
 		public override void ReadJson(JObject obj)
 		{
-			base.ReadJson(obj);
+			if(UseIDAndRev)
+				base.ReadJson(obj);
 			
 			ArchetypeNodeID = obj["archetype_node_id"].Value<string>();
 			

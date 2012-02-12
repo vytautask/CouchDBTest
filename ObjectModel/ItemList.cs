@@ -64,6 +64,7 @@ namespace ObjectModel
 			while (enumerator.MoveNext())
 			{
 				OMBase item = TypeResolver.ResolveType(enumerator.Current["type_name"].Value<string>());
+				item.UseIDAndRev = UseIDAndRev;
 
 				item.ReadJson((JObject)enumerator.Current);
 

@@ -10,6 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{E8D789D7-2A4D-429E-9179-07AE921BDE77}"
 	ProjectSection(SolutionItems) = preProject
 		Libs\Divan.dll = Libs\Divan.dll
+		Libs\log4net.dll = Libs\log4net.dll
+		Libs\log4net.xml = Libs\log4net.xml
 		Libs\Newtonsoft.Json.dll = Libs\Newtonsoft.Json.dll
 		Libs\nunit.framework.dll = Libs\nunit.framework.dll
 	EndProjectSection

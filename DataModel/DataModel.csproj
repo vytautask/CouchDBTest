@@ -29,6 +29,9 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\Libs\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="Divan">
       <HintPath>..\Libs\Divan.dll</HintPath>
@@ -39,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CouchDBModel.cs" />
+    <Compile Include="Generator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ObjectModel\ObjectModel.csproj">
