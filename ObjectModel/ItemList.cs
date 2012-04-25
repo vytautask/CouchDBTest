@@ -6,6 +6,7 @@ using System.Text;
 
 namespace ObjectModel
 {
+	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 	public class ItemList: OMBase
 	{
 		private IList<OMBase> _items = null;
@@ -20,6 +21,7 @@ namespace ObjectModel
 			
 		}
 		
+		[JsonProperty("items")]
 		public IList<OMBase> Items
 		{
 			get 
@@ -64,7 +66,6 @@ namespace ObjectModel
 			while (enumerator.MoveNext())
 			{
 				OMBase item = TypeResolver.ResolveType(enumerator.Current["type_name"].Value<string>());
-				item.UseIDAndRev = UseIDAndRev;
 
 				item.ReadJson((JObject)enumerator.Current);
 

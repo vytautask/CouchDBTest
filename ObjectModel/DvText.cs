@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ObjectModel
 {
+	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 	public class DvText: OMBase
 	{
 		private CString _value = null;
@@ -29,6 +30,7 @@ namespace ObjectModel
 			get { return "DV_TEXT";	}
 		}
 		
+		[JsonProperty("value")]
 		public CString Value
 		{
 			get { return _value; }

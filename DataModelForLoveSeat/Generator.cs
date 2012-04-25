@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using ObjectModel;
-using Divan;
 using System.IO;
 using System.Text;
+using LoveSeat;
+using Newtonsoft.Json;
 
 namespace DataModel
 {
@@ -41,7 +42,8 @@ namespace DataModel
 						list.Items.Add(item);
 					}
 
-					outfile.WriteLine(CouchDocument.WriteJson(list));
+					outfile.WriteLine(JsonConvert.SerializeObject(list, Formatting.None));
+
 					list.Dispose();
 					list = null;
 				}

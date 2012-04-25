@@ -1,11 +1,11 @@
 using System;
-using Divan;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using LoveSeat;
 
 namespace ObjectModel
 {
-	public abstract class CPrimitive: ICanJson, IDisposable
+	public abstract class CPrimitive : JObject, IDisposable
 	{
         private bool _isDisposed = false;
 

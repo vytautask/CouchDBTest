@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ObjectModel
 {
+	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 	public class DvCount: OMBase
 	{
 		private CCount _value = null;
@@ -30,6 +31,7 @@ namespace ObjectModel
 			get { return "DV_COUNT"; }
 		}
 		
+		[JsonProperty("value")]
 		public CCount Value 
 		{
 			get { return _value; }

@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ObjectModel
 {
+	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 	public class CString : CPrimitive
 	{
 		private string _value = null;
@@ -16,6 +17,7 @@ namespace ObjectModel
 			Value = value;
 		}
 		
+		[JsonProperty("value")]
 		public string Value
 		{
 			get { return _value; }

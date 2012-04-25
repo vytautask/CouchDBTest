@@ -1,20 +1,18 @@
-using Divan;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using LoveSeat;
+using System.Runtime.Serialization;
 
 namespace ObjectModel
 {
-	public abstract class OMBase: CouchDocument, IDisposable
+	public abstract class OMBase : Document, IDisposable //CouchDocument, 
 	{
 		private string _archetypeNodeID = null;
         private bool _isDisposed = false;
-		private bool _useIDAndRev = true;
-		
+
 		public OMBase()
 		{
-			//Id = "";
-			//Rev = "";
 		}
 		
 		public OMBase (string archetypeNodeID)
@@ -22,19 +20,15 @@ namespace ObjectModel
 		{
 			ArchetypeNodeID = archetypeNodeID;
 		}
-		
+
+		[JsonProperty("archetype_node_id")]
 		public string ArchetypeNodeID
 		{
 			get { return _archetypeNodeID; }
 			set { _archetypeNodeID = value; }
 		}
-		
-		public bool UseIDAndRev
-		{
-			get { return _useIDAndRev; }
-			set { _useIDAndRev = value; }
-		}
 
+		[JsonProperty("type_name")]
 		public abstract string TypeName
 		{
 			get;
@@ -46,10 +40,19 @@ namespace ObjectModel
             private set { _isDisposed = value; }
         }
         
-		public override void WriteJson(JsonWriter writer)
+		public void WriteJson(JsonWriter writer)
 		{
-			if(UseIDAndRev)
-				base.WriteJson(writer);
+			if (!string.IsNullOrEmpty(Id))
+			{
+				writer.WritePropertyName("_id");
+				writer.WriteValue(Id);
+			}
+
+			if (!string.IsNullOrEmpty(Rev))
+			{
+				writer.WritePropertyName("_rev");
+				writer.WriteValue(Rev);
+			}
 			
 			writer.WritePropertyName("type_name");
 			writer.WriteValue(TypeName);
@@ -59,11 +62,18 @@ namespace ObjectModel
 			OnWriteJson(writer);
 		}
 		
-		public override void ReadJson(JObject obj)
+		public void ReadJson(JObject obj)
 		{
-			if(UseIDAndRev)
-				base.ReadJson(obj);
-			
+			if (obj["_id"] != null)
+			{
+				Id = obj["_id"].Value<string>();
+			}
+
+			if (obj["_rev"] != null)
+			{
+				Rev = obj["_rev"].Value<string>();
+			}
+
 			ArchetypeNodeID = obj["archetype_node_id"].Value<string>();
 			
 			OnReadJson(obj);
@@ -96,6 +106,6 @@ namespace ObjectModel
 		{
 			Dispose(false);
 		}
-    }
+	}
 }
 

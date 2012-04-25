@@ -34,14 +34,17 @@
     <Reference Include="log4net">
       <HintPath>..\Libs\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="LoveSeat">
+      <HintPath>..\Libs\LoveSeat.dll</HintPath>
+    </Reference>
+    <Reference Include="LoveSeat.Interfaces">
+      <HintPath>..\Libs\LoveSeat.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="Divan">
-      <HintPath>..\Libs\Divan.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Libs\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -53,13 +56,13 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\DataModelForLoveSeat\DataModelForLoveSeat.csproj">
+      <Project>{8B8D5607-9C23-4B02-85D4-6A6879275C5B}</Project>
+      <Name>DataModelForLoveSeat</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ObjectModel\ObjectModel.csproj">
       <Project>{E8F202FD-E416-4081-9010-85E6C6BB2847}</Project>
       <Name>ObjectModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataModel\DataModel.csproj">
-      <Project>{696D44DD-16BA-43DA-85AD-76D5857FFCF9}</Project>
-      <Name>DataModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

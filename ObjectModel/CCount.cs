@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ObjectModel
 {
+	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 	public class CCount: CPrimitive
 	{
 		private int _magnitude = 0;
@@ -17,6 +18,7 @@ namespace ObjectModel
 			Magnitude = magnitude;
 		}
 		
+		[JsonProperty("magnitude")]
 		public int Magnitude
 		{
 			get { return _magnitude; }

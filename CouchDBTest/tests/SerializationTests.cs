@@ -1,4 +1,3 @@
-using Divan;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
@@ -20,7 +19,7 @@ namespace CouchDBTest
 			list.Items.Add(new DvText("at0002", new CString("#Test")));
 			list.Items.Add(new DvCount("at0003", new CCount(25)));
 
-			string json = CouchDocument.WriteJson(list);
+			string json = JsonConvert.SerializeObject(list);
 
 			JObject obj = (JObject)JsonConvert.DeserializeObject(json); 
 			

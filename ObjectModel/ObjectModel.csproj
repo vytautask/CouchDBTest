@@ -29,12 +29,15 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LoveSeat">
+      <HintPath>..\Libs\LoveSeat.dll</HintPath>
+    </Reference>
+    <Reference Include="LoveSeat.Interfaces">
+      <HintPath>..\Libs\LoveSeat.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Libs\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Divan">
-      <HintPath>..\Libs\Divan.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
