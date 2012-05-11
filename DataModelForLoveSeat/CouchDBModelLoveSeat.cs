@@ -108,37 +108,41 @@ namespace DataModel
 			ItemList randomItem = GetRandomItemListFromDataFile(dataFile);
 
 			ViewOptions options = new ViewOptions();
-
 			options.Key.Add(randomItem.ArchetypeNodeID);
+			options.IncludeDocs = true;
 			Stopwatch watch = new Stopwatch();
 			watch.Start();
 
 			_log.Info("Starting select 1");
 
-			ViewResult<ItemList> result = _database.View<ItemList>("test_archetype_node_id", options, "test");
+			ViewResult result = _database.View("test_archetype_node_id", options, "test");
 			
 			watch.Stop();
 
-			_log.InfoFormat("Select done in {0}s and found {1} documents", watch.Elapsed.TotalSeconds, result.Docs.Count());
+			int count = result.Rows.Count<JToken>(); ;
+
+			_log.InfoFormat("Select done in {0}ms and found {1} documents", watch.Elapsed.TotalMilliseconds, count);
 		}
 
 		public void PerformSelect2(string dataFile)
 		{
-			//ICouchViewDefinition tempView = _database.NewTempView("test", "test2", "if (doc.items) { emit(doc.archetype_node_id, doc); }");
+			ItemList randomItem = GetRandomItemListFromDataFile(dataFile);
 
-			//ItemList randomItem = GetRandomItemListFromDataFile(dataFile);
+			ViewOptions options = new ViewOptions();
+			options.Key.Add(new JRaw("[ \"" + randomItem.Items[3].ArchetypeNodeID + "\", null, \"" + randomItem.Items[3].TypeName + "\"]"));
+			options.IncludeDocs = true;
+			Stopwatch watch = new Stopwatch();
+			watch.Start();
 
-			//var linDocuments = tempView.LinqQuery<ItemList>();
-			//_log.Info("Starting select 2");
+			_log.Info("Starting select 2");
 
-			//Stopwatch watch = new Stopwatch();
-			//watch.Start();
+			ViewResult result = _database.View("archetype_node_id_value", options, "test");
 
-			//IList<ItemList> results = new List<ItemList>(from c in linDocuments where  select c);
+			watch.Stop();
 
-			//watch.Stop();
+			int count = result.Rows.Count<JToken>(); ;
 
-			//_log.InfoFormat("Select 2 done in {0}s and found {1} documents", watch.Elapsed.TotalSeconds, results.Count<ItemList>());
+			_log.InfoFormat("Select2 done in {0}ms and found {1} documents", watch.Elapsed.TotalMilliseconds, count);
 		}
 	}
 }

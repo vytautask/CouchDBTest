@@ -9,3 +9,17 @@
 /DataModel/obj
 *.suo
 *.userprefs
+/DataModelForLoveSeat/bin/Debug/DataModelForLoveSeat.dll
+/DataModelForLoveSeat/bin/Debug/DataModelForLoveSeat.pdb
+/DataModelForLoveSeat/bin/Debug/LoveSeat.Interfaces.dll
+/DataModelForLoveSeat/bin/Debug/LoveSeat.dll
+/DataModelForLoveSeat/bin/Debug/Newtonsoft.Json.dll
+/DataModelForLoveSeat/bin/Debug/ObjectModel.dll
+/DataModelForLoveSeat/bin/Debug/ObjectModel.pdb
+/DataModelForLoveSeat/bin/Debug/log4net.dll
+/DataModelForLoveSeat/bin/Debug/log4net.xml
+/DataModelForLoveSeat/obj/Debug/DataModelForLoveSeat.csproj.FileListAbsolute.txt
+/DataModelForLoveSeat/obj/Debug/DataModelForLoveSeat.dll
+/DataModelForLoveSeat/obj/Debug/DataModelForLoveSeat.pdb
+/DataModelForLoveSeat/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/DataModelForLoveSeat/obj/Debug/ResolveAssemblyReference.cache
