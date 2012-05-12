@@ -5,6 +5,26 @@ Simple EHR database solution benchmark research project.
 It is used to measure different EHR document storing databases (for example, this project measures performance for CouchDB).
 
 
+Queries
+--
+
+Without childs:
+	function(doc) {
+		if (doc.archetype_node_id)
+  			emit(doc.archetype_node_id, doc);
+	}
+
+
+With child select:
+	function(doc) {
+  	emit([doc.archetype_node_id, doc.type_name], doc);
+	  for (var i = 0 in doc.items) {
+  	 emit([doc.items[i].archetype_node_id, doc.items[i].type_name], doc);
+	  }
+	}
+
+
+
 License
 --
 
