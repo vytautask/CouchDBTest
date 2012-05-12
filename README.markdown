@@ -9,21 +9,22 @@ Queries
 --
 
 Without childs:
+```javascript
 	function(doc) {
 		if (doc.archetype_node_id)
   			emit(doc.archetype_node_id, doc);
 	}
-
+```
 
 With child select:
+```javascript
 	function(doc) {
-  	emit([doc.archetype_node_id, doc.type_name], doc);
-	  for (var i = 0 in doc.items) {
-  	 emit([doc.items[i].archetype_node_id, doc.items[i].type_name], doc);
-	  }
+  		emit([doc.archetype_node_id, doc.type_name], doc);
+	  	for (var i = 0 in doc.items) {
+  	 		emit([doc.items[i].archetype_node_id, doc.items[i].type_name], doc);
+	  	}
 	}
-
-
+```
 
 License
 --
